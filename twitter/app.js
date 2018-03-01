@@ -15,7 +15,7 @@ const client = new Twitter({
 });
 
 client.get('statuses/user_timeline', {screen_name: process.env.TWITTER_SCREEN_NAME}).then(tweets => {
-	return tweets.map((x, index) => {
+	return tweets.slice(0, process.env.TWITTER_TIMELINE_COUNT + 1 || 5 + 1).map((x, index) => {
 		return {
 			id: x.id_str,
 			order: index,
