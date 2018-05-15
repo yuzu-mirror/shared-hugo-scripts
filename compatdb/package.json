@@ -6,6 +6,7 @@
   "author": "Flame Sage <chris062689@gmail.com>",
   "main": "app.js",
   "dependencies": {
+    "checkenv": "^1.2.2",
     "fs-extra": "^6.0.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
