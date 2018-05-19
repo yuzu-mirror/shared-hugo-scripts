@@ -70,10 +70,14 @@ async function run() {
       x.issues = x.issues || []
 
       // Copy the boxart for the game.
-      fs.copySync(`${fsPathCode}/${x.id}/boxart.png`, `${fsPathHugoBoxart}/${x.id}.png`);
+      if (fs.existsSync(`${fsPathCode}/${x.id}/boxart.png`)) {
+        fs.copySync(`${fsPathCode}/${x.id}/boxart.png`, `${fsPathHugoBoxart}/${x.id}.png`);
+      }
 
       // Copy the icon for the game.
-      fs.copySync(`${fsPathCode}/${x.id}/icon.png`, `${fsPathHugoIcon}/${x.id}.png`);
+      if (fs.existsSync(`${fsPathCode}/${x.id}/icon.png`)) {
+        fs.copySync(`${fsPathCode}/${x.id}/icon.png`, `${fsPathHugoIcon}/${x.id}.png`);
+      }
 
       // SAVEFILE BLOCK
       var fsPathCodeSavefilesGame = `${fsPathCode}/${x.id}/savefiles/`;
