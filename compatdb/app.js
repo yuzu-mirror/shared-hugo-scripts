@@ -11,11 +11,12 @@ const exec = require('sync-exec');
 const tenant = process.env.TENANT
 
 const fsPathCode = `./${tenant}-games-wiki/games`
-const fsPathHugoContent = '../../site/content/game'
-const fsPathHugoBoxart = '../../site/static/images/game/boxart'
-const fsPathHugoIcon = '../../site/static/images/game/icons'
-const fsPathHugoScreenshots = '../../site/static/images/screenshots0'
-const fsPathHugoSavefiles = '../../site/static/savefiles/'
+const fsPathHugo = '../../../site'
+const fsPathHugoContent = `${fsPathHugo}/content/game`
+const fsPathHugoBoxart = `${fsPathHugo}/static/images/game/boxart`
+const fsPathHugoIcon = `${fsPathHugo}/static/images/game/icons`
+const fsPathHugoScreenshots = `${fsPathHugo}/static/images/screenshots0`
+const fsPathHugoSavefiles = `${fsPathHugo}/static/savefiles/`
 
 process.on('unhandledRejection', err => {
   logger.error('Unhandled rejection on process.');
