@@ -73,11 +73,16 @@ async function run() {
       // Copy the boxart for the game.
       if (fs.existsSync(`${fsPathCode}/${x.id}/boxart.png`)) {
         fs.copySync(`${fsPathCode}/${x.id}/boxart.png`, `${fsPathHugoBoxart}/${x.id}.png`);
+      } else if (fs.existsSync(`${fsPathCode}/${x.id}/icon.png`)) {
+        fs.copySync(`${fsPathCode}/${x.id}/icon.png`, `${fsPathHugoBoxart}/${x.id}.png`);
       }
 
       // Copy the icon for the game.
+      // If the icon does not exist, use the boxart in place of the icon.
       if (fs.existsSync(`${fsPathCode}/${x.id}/icon.png`)) {
         fs.copySync(`${fsPathCode}/${x.id}/icon.png`, `${fsPathHugoIcon}/${x.id}.png`);
+      } else if (fs.existsSync(`${fsPathCode}/${x.id}/boxart.png`)) {
+        fs.copySync(`${fsPathCode}/${x.id}/boxart.png`, `${fsPathHugoIcon}/${x.id}.png`);
       }
 
       // SAVEFILE BLOCK
