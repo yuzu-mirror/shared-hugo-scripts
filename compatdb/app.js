@@ -36,10 +36,6 @@ function gitPull(directory, repository) {
   }
 }
 
-async function getDirectories(x) {
-  return fs.readdir(x).filter(file => fs.lstatSync(path.join(x, file)).isDirectory())
-}
-
 async function run() {
   // Make sure the output directories in Hugo exist.
   [fsPathHugoContent, fsPathHugoBoxart, fsPathHugoIcon, fsPathHugoSavefiles, fsPathHugoScreenshots].forEach(function (path) {
@@ -122,11 +118,11 @@ async function run() {
       }
 
       // Clear out the wiki markdown so it won't be stored with the metadata.
-      let wikiText = x.wiki_markdown
+      let wikiText = x.wiki_markdown || ''
       x.wiki_markdown = null
 
       let meta = tomlify.toToml(x, {space: 2})
-      let contentOutput = `+++\r\n${meta}\r\n+++\r\n\r\n${wikiText}\r\n`;
+      let contentOutput = `+++\r\nleft_sidebar = true\r\n${meta}\r\n+++\r\n\r\n${wikiText}\r\n`;
 
       await fs.writeFile(`${fsPathHugoContent}/${x.id}.md`, contentOutput);
 
