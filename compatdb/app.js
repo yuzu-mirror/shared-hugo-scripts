@@ -57,13 +57,10 @@ async function run() {
       // Set metadata.
       x.date = `${new Date().toISOString()}`
 
-      // In Hugo, data keys need to be strings.
+      // Hugo requires compatibility to be a string to link to data JSON.
       x.compatibility = x.compatibility.toString()
-
       x.testcases.forEach(x => x.compatibility = x.compatibility.toString())
 
-      // Reverse the testcases so the most recent ones show up top.
-      x.testcases = x.testcases.reverse()
       x.issues = x.issues || []
 
       // Copy the boxart for the game.
