@@ -7,10 +7,10 @@
   "main": "app.js",
   "dependencies": {
     "checkenv": "^1.2.2",
-    "fs-extra": "^5.0.0",
-    "sanitize-html": "^1.16.3",
+    "fs-extra": "^9.0.1",
+    "sanitize-html": "^1.27.0",
     "sync-exec": "^0.6.2",
-    "winston": "^2.4.0"
+    "winston": "^3.3.3"
   },
   "preferGlobal": false,
   "private": true,
