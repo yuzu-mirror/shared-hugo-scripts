@@ -2,10 +2,9 @@ require('checkenv').check();
 
 const fs = require('fs-extra');
 const path = require('path');
-const util = require('util');
 const logger = require('winston');
-const request = require('request-promise');
-const tomlify = require('tomlify-j0.4');
+const fetch = require('node-fetch');
+const tomlify = require('@iarna/toml');
 const exec = require('sync-exec');
 
 const tenant = process.env.TENANT
@@ -49,7 +48,7 @@ async function run() {
   gitPull(`./${tenant}-games-wiki`, `https://github.com/${tenant}-emu/${tenant}-games-wiki.git`);
 
   // Loop through each game and process it.
-  let games = await request.get({ uri: `https://api.${tenant}-emu.org/gamedb/websiteFeed/`, json: true })
+  let games = await fetch(`https://api.${tenant}-emu.org/gamedb/websiteFeed/`).then(resp => resp.json());
   await Promise.all(games.map(async (x) => {
     try {
       logger.info(`Processing game: ${x.id}`);
@@ -118,7 +117,7 @@ async function run() {
       let wikiText = x.wiki_markdown || ''
       x.wiki_markdown = null
 
-      let meta = tomlify.toToml(x, {space: 2})
+      let meta = tomlify.stringify(x)
       let contentOutput = `+++\r\nleft_sidebar = true\r\n${meta}\r\n+++\r\n\r\n${wikiText}\r\n`;
 
       await fs.writeFile(`${fsPathHugoContent}/${x.id}.md`, contentOutput);
