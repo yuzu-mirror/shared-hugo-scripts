@@ -86,6 +86,9 @@ fs.readdir(inputDirectory, (err, items) => {
 					cleanData = cleanData.replace(/\[\[(.*)\]\]/g, (match, p1) => {
 						return `[${p1}](${url(p1)})`;
 					});
+					
+					// Replace decoded &amp; -> &
+					cleanData = cleanData.replace(/&amp;/g, "&");
 
 					// Create the new markdown header for Hugo.
 					const newFileContents = `+++\r\ntitle = "${title}"\r\ndate = "${modified.toISOString()}"\r\n+++\r\n\r\n${cleanData}\r\n`;
