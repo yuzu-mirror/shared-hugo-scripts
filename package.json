@@ -1,0 +1,20 @@
+{
+  "name": "shared-hugo-scripts",
+  "version": "1.0.0",
+  "description": "Shared Hugo scripts for Citra and yuzu",
+  "main": "index.js",
+  "repository": "https://github.com/yuzu-emu/shared-hugo-scripts.git",
+  "author": "liushuyu <liushuyu011@gmail.com>",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "scripts": {
+    "wiki": "cd wiki && node app.js",
+    "twitter": "cd twitter && node app.js",
+    "compatdb": "cd compatdb && node app.js"
+  },
+  "workspaces": [
+    "compatdb",
+    "twitter",
+    "wiki"
+  ]
+}

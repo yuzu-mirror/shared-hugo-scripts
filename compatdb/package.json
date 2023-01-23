@@ -1,5 +1,5 @@
 {
-  "name": "citra-twitter",
+  "name": "citra-compatdb",
   "version": "1.0.0",
   "description": "Used in Citra Hugo to import Twitter tweets.",
   "homepage": "https://citra-emu.org/",
@@ -8,10 +8,10 @@
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "checkenv": "^1.2.2",
-    "fs-extra": "^9.0.1",
-    "node-fetch": "^2.6.1",
-    "sync-exec": "^0.6.2",
-    "winston": "^3.3.3"
+    "execa": "^6.1.0",
+    "fancy-log": "^2.0.0",
+    "fs-extra": "^11.1.0",
+    "node-fetch": "^2.6.1"
   },
   "preferGlobal": false,
   "private": true,

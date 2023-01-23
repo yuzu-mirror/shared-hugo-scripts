@@ -1,16 +1,16 @@
 {
   "name": "citra-wiki",
   "version": "1.0.0",
-  "description": "Used in Citra Hugo to import Twitter tweets.",
+  "description": "Used in Citra Hugo to import wiki articles.",
   "homepage": "https://citra-emu.org/",
   "author": "Flame Sage <chris062689@gmail.com>",
   "main": "app.js",
   "dependencies": {
     "checkenv": "^1.2.2",
-    "fs-extra": "^9.0.1",
-    "sanitize-html": "^2.3.0",
-    "sync-exec": "^0.6.2",
-    "winston": "^3.3.3"
+    "execa": "^6.1.0",
+    "fancy-log": "^2.0.0",
+    "fs-extra": "^11.1.0",
+    "sanitize-html": "^2.8.1"
   },
   "preferGlobal": false,
   "private": true,
