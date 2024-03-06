@@ -63,7 +63,7 @@ async function run() {
 
   // Loop through each game and process it.
   let games = await fetch(
-    `https://api.${tenant}-emu.org/gamedb/websiteFeed/`
+    `https://raw.githubusercontent.com/yuzu-mirror/api/main/gamedb/websiteFeed`
   ).then((resp) => resp.json());
   await Promise.all(
     games.map(async (x) => {
